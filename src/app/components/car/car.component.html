@@ -1,31 +1,45 @@
-<div *ngIf ="dataLoaded == false" class="spinner-border text-info" role="status">
-    <span class="visually-hidden"></span>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <label for="filterCarText" class="form-label">Araba ara</label>
+    <input type="text" [(ngModel)] = "filterCarText" class="form-control" id="filterCarText" 
+    placeholder="araba giriniz">
   </div>
+</div>
 
-  <table *ngIf = "dataLoaded == true" class = "table">
+<div class = "row ml-1 mr-1">
+  <div *ngFor ="let car of cars |carFilter: filterCarText" class ="col-md-3 my-3">
+    <div class = "card" style = "width: 100%;">
+      <img src = "{{carImagePath}}/{{getCarImage(car)}}" class = "card-img-top" alt = "...">
+      <div class = "card-body">
+        <h5 class = "card-title text-center">{{car.carName}}</h5>
+        <hr>
+        <p><strong>Model Yılı: </strong> {{car.modelYear}}</p>
+        <hr>
+        <p><strong>Günlük Ücret: </strong> {{car.dailyPrice}}</p>
+        <hr>
+        <a routerLink = "/cars/getcardetailsbyid/{{car.carId}}" class = "btn btn-info">Detaylar</a>
+      </div>
+    </div>
+  </div>
+ </div>
+
+  <!-- <table class = "row ml-0 mr-0">
       <thead>
           <tr>
-            <th>Id</th>
-            <th>Araba Adı</th>
-            <th>Marka Adı</th>
-            <th>Renk Adı</th>
-            <th>Model Yılı</th>
-            <th>Günlük Ücret</th>
-            <th>Açıklama</th>
-            <th>Araba Resmi</th>
+            <th scope= "col">Araba Adı</th>
+            <th scope= "col">Model Yılı</th>
+            <th scope= "col">Günlük Ücret</th>
+            <th scope= "col">Açıklama</th>
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor = "let car of cars">
-              <td>{{car.carId}}</td>
+          <tr *ngFor = "let car of cars |carFilter: filterCarText">
               <td>{{car.carName}}</td>
-              <td>{{car.brandName}}</td>
-              <td>{{car.colorName}}</td>
               <td>{{car.modelYear}}</td>
               <td>{{car.dailyPrice}}</td>
               <td>{{car.description}}</td>
-              <td><img [src] = "car.imagePath ? imageDirectoryPath + car.imagePath : 'assets/img/No-image-available.png' " 
-                height="100px" width="100px">{{car.imagePath}}</td>
+              <td><button type = "button" class = "btn btn-info"
+                routerLink = "getcardetailsbyid/{{car.carId}}">Detail</button></td>
           </tr>
       </tbody>
-  </table>
+  </table> -->

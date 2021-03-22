@@ -1,0 +1,65 @@
+
+
+<div class = "row mt-4 ml-1 mr-1">
+    <div class = "carousel-inner">
+        <div *ngFor = "let carImage of carImages">
+            <img class = "d-block  w-80" src = {{carImagePath}}{{carImage.imagePath}} alt = "...">
+        </div>
+    </div>
+</div>
+
+<div class="row ml-0 mr-0">
+    <div class="col-md-8 offset-md-2 table-animations">
+        <div *ngFor = "let carDetail of carDetails" class = "mt-5">
+            <table class = "table m-4">
+
+                <tr>
+                    <th scope= "col">Araba Adı:</th>
+                    <td>{{carDetail.carName}}</td>
+                </tr>
+
+                <tr>
+                    <th scope= "col">Marka Adı:</th>
+                    <td>{{carDetail.brandName}}</td>
+                </tr>
+
+                <tr>
+                    <th scope= "col">Renk Adı:</th>
+                    <td>{{carDetail.colorName}}</td>
+                </tr>
+
+                <tr>
+                    <th scope= "col">Günlük Ücret:</th>
+                    <td>{{carDetail.dailyPrice}}</td>
+                </tr>
+                
+                <tr>
+                    <th scope= "col">Açıklama:</th>
+                    <td>{{carDetail.description}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+  <!-- <table *ngIf = "dataLoaded == true"  class = "table m-4">
+      <thead>
+          <tr>
+            <th scope= "col">Araba Adı</th>
+            <th scope= "col">Marka Adı</th>
+            <th scope= "col">Renk Adı</th>
+            <th scope= "col">Günlük Ücret</th>
+            <th scope= "col">Açıklama</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let carDetail of carDetails">
+              <td>{{carDetail.carName}}</td>
+              <td>{{carDetail.brandName}}</td>
+              <td>{{carDetail.colorName}}</td>
+              <td>{{carDetail.dailyPrice}}</td>
+              <td>{{carDetail.description}}</td>
+          </tr>
+      </tbody>
+  </table> -->

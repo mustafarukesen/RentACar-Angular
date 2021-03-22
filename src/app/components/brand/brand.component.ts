@@ -12,6 +12,7 @@ export class BrandComponent implements OnInit {
   brands:Brand[] = [];
   currentBrand : Brand;
   dataLoaded = false;
+  filterBrandText = "";
 
   constructor(private brandService:BrandService) { }
 
@@ -46,6 +47,10 @@ export class BrandComponent implements OnInit {
     else{
       return "list-group-item"
     }
+  }
+
+  clearFilter(){
+    this.getBrands()
   }
 
 }

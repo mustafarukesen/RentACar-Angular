@@ -12,6 +12,7 @@ export class ColorComponent implements OnInit {
   colors:Color[] = [];
   currentColor : Color;
   dataLoaded = false;
+  filterColorText = "";
 
   constructor(private colorService:ColorService) { }
 
@@ -46,6 +47,10 @@ export class ColorComponent implements OnInit {
     else{
       return "list-group-item"
     }
+  }
+
+  clearFilter(){
+    this.getColors()
   }
 
 }
